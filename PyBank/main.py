@@ -65,4 +65,9 @@ output = (
 
 print(output)
 
+# exporting to text file
+with open(analysis_txt, "w") as txt_file:
+    txt_file.write(output)
+
+
     
