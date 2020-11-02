@@ -39,4 +39,12 @@ with open(data_csv) as csvfile:
         net_change_list += [net_change]
         month_of_change += [row[0]]
 
+        #determining greatest increase/decrease
+        if net_change > greatest_increase[1]:
+            greatest_increase[0] = row[0]
+            greatest_increase[1] = net_change
+        if net_change < greatest_decrease[1]:
+            greatest_decrease[0] = row[0]
+            greatest_decrease[1] = net_change
+
     
