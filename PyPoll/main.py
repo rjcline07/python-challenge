@@ -46,5 +46,20 @@ with open(analysis_txt, "w") as txt_file:
         f"Total Votes: {total_votes}\n"
         f"------------------------\n")
     print(election_results, end="")
-
+#saving final count to txt file
 txt_file.write(election_results)
+
+
+#finding winner
+for candidate in candidate_votes:
+    votes = candidate_votes.get(candidate)
+    vote_percentage = float(votes) / float(total_votes) * 100
+
+    if (votes > winning_count):
+        winning_count = votes
+        winning_candidate = candidate
+    
+
+    #printing candidate's count and percentage
+    voter_output = f"{candidate}: {vote_percentage:.3f}% ({votes})\n"
+    print(voter_output, end="")
