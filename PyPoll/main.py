@@ -36,3 +36,15 @@ with open(data_csv) as election_data:
         #adding vote to candidate count
         candidate_votes[candidate_name] += 1
 
+#printing results and exporting
+
+with open(analysis_txt, "w") as txt_file:
+
+    election_results = (
+        f"\n\nElection Results\n"
+        f"-----------------------\n"
+        f"Total Votes: {total_votes}\n"
+        f"------------------------\n")
+    print(election_results, end="")
+
+txt_file.write(election_results)
