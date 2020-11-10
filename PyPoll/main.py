@@ -47,19 +47,32 @@ with open(analysis_txt, "w") as txt_file:
         f"------------------------\n")
     print(election_results, end="")
 #saving final count to txt file
-txt_file.write(election_results)
+        txt_file.write(election_results)
 
 
 #finding winner
-for candidate in candidate_votes:
-    votes = candidate_votes.get(candidate)
-    vote_percentage = float(votes) / float(total_votes) * 100
+    for candidate in candidate_votes:
+        votes = candidate_votes.get(candidate)
+        vote_percentage = float(votes) / float(total_votes) * 100
 
-    if (votes > winning_count):
-        winning_count = votes
-        winning_candidate = candidate
+        if (votes > winning_count):
+            winning_count = votes
+            winning_candidate = candidate
     
 
     #printing candidate's count and percentage
-    voter_output = f"{candidate}: {vote_percentage:.3f}% ({votes})\n"
-    print(voter_output, end="")
+        voter_output = f"{candidate}: {vote_percentage:.3f}% ({votes})\n"
+        print(voter_output, end="")
+
+    #txt file of results
+        txt_file.write(voter_output)
+
+    #printing winner
+    winning_candidate_summary = (
+        f"------------------------\n"
+        f"Winner: {winning_candidate}\n"
+        f"------------------------\n")
+    print(winning_candidate_summary)
+
+    #saving file
+    txt_file.write(winning_candidate_summary)
