@@ -12,6 +12,12 @@ total_votes = 0
 candidates = []
 candidate_votes = {}
 
+
+#establish a winning candidate and count variable
+winning_candidate = ""
+winning_count = 0
+
+
 #Reading in CSV
 
 with open(data_csv) as election_data:
@@ -47,7 +53,7 @@ with open(analysis_txt, "w") as txt_file:
         f"------------------------\n")
     print(election_results, end="")
 #saving final count to txt file
-        txt_file.write(election_results)
+    txt_file.write(election_results)
 
 
 #finding winner
